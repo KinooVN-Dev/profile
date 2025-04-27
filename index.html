@@ -3,48 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Discord Nitro Profile</title>
+  <title>Hồ Sơ Cá Nhân - Kinoovn</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #1e1f22;
-      color: white;
       font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       padding: 2rem;
     }
-    .profile-card {
-      background: rgba(32,34,37,0.9);
-      border-radius: 15px;
-      width: 340px;
-      overflow: hidden;
-      box-shadow: 0 0 10px #6b00ff;
-      border: 2px solid;
-      border-image: linear-gradient(45deg, #00ffcc, #7a00ff) 1;
-      position: relative;
-    }
-    .banner {
+    .container {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      display: flex;
+      max-width: 1000px;
       width: 100%;
-      height: 120px;
-      background: url('https://media.tenor.com/Zzx__Fx2zUsAAAAC/galaxy.gif') center/cover no-repeat;
+      overflow: hidden;
+      border: 2px solid #7f00ff;
+    }
+    .left {
+      width: 40%;
+      background: url('https://media.tenor.com/ftzIOlJv0qYAAAAC/discord-love.gif') center/cover no-repeat;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
     .avatar {
-      width: 80px;
-      height: 80px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       overflow: hidden;
-      position: absolute;
-      top: 70px;
-      left: 20px;
-      border: 4px solid #00ffcc;
-      background: linear-gradient(45deg, #00ffcc, #7a00ff);
-      padding: 2px;
+      border: 5px solid #00ffd5;
+      position: relative;
+      background: linear-gradient(45deg, #ff00c8, #00f7ff);
+      padding: 4px;
+      animation: pulse 2s infinite;
     }
     .avatar img {
       width: 100%;
@@ -52,81 +57,124 @@
       object-fit: cover;
       border-radius: 50%;
     }
-    .info {
-      padding: 4rem 1rem 1rem 1rem;
-      text-align: left;
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff; }
+      50% { box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff; }
     }
-    .info h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
+    .name {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-align: center;
     }
-    .info .username {
+    .right {
+      width: 60%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .about, .skills, .contact, .music, .clock {
+      margin-bottom: 1.5rem;
+    }
+    h3 {
+      color: #00ffd5;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    p, li {
+      color: #ccc;
       font-size: 1rem;
-      color: #bbb;
-      margin-bottom: 0.6rem;
+      line-height: 1.5;
     }
-    .badges {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 0.8rem;
+    ul {
+      list-style: none;
+      padding: 0;
     }
-    .badge {
-      background: #5865f2;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: bold;
+    ul li::before {
+      content: "• ";
+      color: #00ffd5;
     }
-    .profile-link {
-      background: rgba(255,255,255,0.05);
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      word-break: break-all;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #b3b3b3;
+    .socials a {
+      color: #00ffd5;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      transition: 0.3s;
     }
-    .profile-link i {
-      color: #00ffcc;
+    .socials a:hover {
+      color: #ff00ff;
     }
-    .nickname-tag {
-      position: absolute;
-      top: 135px;
-      left: 110px;
-      background: #5865f2;
-      padding: 3px 8px;
-      border-radius: 10px;
-      font-size: 0.75rem;
-      font-weight: bold;
+    audio {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    .clock-time {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
+
 <body>
 
-<div class="profile-card">
-  <div class="banner"></div>
-  <div class="avatar">
-    <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="avatar">
+<div class="container">
+  <div class="left">
+    <div class="avatar">
+      <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
+    </div>
+    <div class="name">Kinoovn</div>
   </div>
-  <div class="nickname-tag">UwU</div>
 
-  <div class="info">
-    <h2>Nô Kỉ Faction</h2>
-    <div class="username">kinoovn <span class="badge">MEOW</span></div>
-
-    <div class="badges">
-      <div class="badge">🌟 Nitro</div>
-      <div class="badge">🔮 Boosted</div>
+  <div class="right">
+    <div class="about">
+      <h3>Giới Thiệu</h3>
+      <p>Mình là một Developer, Designer & Creator 🎨🚀 Thích sáng tạo và biến ý tưởng thành hiện thực.</p>
     </div>
 
-    <div class="profile-link">
-      <i class="fas fa-link"></i> https://guns.lol/kinoovn
+    <div class="skills">
+      <h3>Kỹ Năng</h3>
+      <ul>
+        <li>Lập trình Website</li>
+        <li>Thiết kế Đồ họa</li>
+        <li>Chỉnh sửa Video</li>
+        <li>Marketing Online</li>
+      </ul>
     </div>
+
+    <div class="contact">
+      <h3>Liên Hệ</h3>
+      <div class="socials">
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="music">
+      <h3>Nhạc yêu thích</h3>
+      <audio controls autoplay loop>
+        <source src="https://cdn.pixabay.com/download/audio/2023/03/29/audio_6b457a07d5.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
+    </div>
+
+    <div class="clock">
+      <h3>Giờ Hiện Tại</h3>
+      <div id="clock-time" class="clock-time"></div>
+    </div>
+
   </div>
 </div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('vi-VN');
+    document.getElementById('clock-time').textContent = time;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
 
 </body>
 </html>
