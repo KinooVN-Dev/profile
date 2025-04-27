@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Website của Tôi</title>
+  <title>Giới Thiệu Bản Thân</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -12,17 +12,19 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body, html {
-      height: 100%;
+
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(270deg, #6e00ff, #00c3ff, #ff6ec4, #7873f5);
+      background: linear-gradient(270deg, #00c3ff, #6e00ff, #ff6ec4, #7873f5);
       background-size: 800% 800%;
       animation: gradientBG 15s ease infinite;
+      color: #fff;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 2rem 1rem;
+      justify-content: center;
+      padding: 2rem;
     }
 
     @keyframes gradientBG {
@@ -31,68 +33,37 @@
       100% {background-position: 0% 50%;}
     }
 
-    header {
-      text-align: center;
-      color: #fff;
-      margin-top: 1rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 0 0 10px #ffffff, 0 0 20px #00e1ff;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { text-shadow: 0 0 10px #ffffff, 0 0 20px #00e1ff; }
-      50% { text-shadow: 0 0 20px #00e1ff, 0 0 40px #ffffff; }
-    }
-
-    .profile-card {
+    .container {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 20px;
-      padding: 2rem;
-      width: 340px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 3rem 2rem;
+      max-width: 800px;
+      width: 100%;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 2rem;
+      animation: fadeIn 1s ease forwards;
     }
 
-    .profile-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .avatar {
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto 1rem;
-      border: 4px solid #fff;
-      box-shadow: 0 0 25px 5px #00ffe7;
-      position: relative;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px #00ffe7;
+      transition: transform 0.4s;
     }
 
-    .avatar::after {
-      content: '';
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255, 255, 255, 0.5);
-      animation: spin 6s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {transform: rotate(0deg);}
-      100% {transform: rotate(360deg);}
+    .avatar:hover {
+      transform: rotate(5deg) scale(1.05);
     }
 
     .avatar img {
@@ -101,73 +72,75 @@
       object-fit: cover;
     }
 
-    h2 {
-      color: #fff;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 1.8rem;
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+      text-shadow: 0 0 10px #ffffff;
     }
 
-    p.bio {
-      color: #eee;
+    .intro {
       font-size: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 0 10px;
+      line-height: 1.8;
+      color: #eee;
+      margin-bottom: 2rem;
     }
 
-    .icons {
+    .buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 1rem;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .icons a {
+    .buttons a {
+      background-color: #00d1ff;
       color: #fff;
-      font-size: 1.8rem;
-      transition: transform 0.3s, color 0.3s;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 209, 255, 0.5);
     }
 
-    .icons a:hover {
-      transform: scale(1.4);
-      color: #ffcc00;
+    .buttons a:hover {
+      background-color: #0084ff;
+      transform: translateY(-3px);
     }
 
     footer {
-      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
       color: #ccc;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    footer span {
-      color: #fff;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🌟 Website của Tôi 🌟</h1>
-  </header>
-
-  <div class="profile-card">
+  <div class="container">
     <div class="avatar">
       <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
     </div>
-    <h2>Username#1234</h2>
-    <p class="bio">Xin chào! Tôi là một developer đam mê thiết kế web, thích sáng tạo và chia sẻ những điều tuyệt vời.</p>
+    <h1>Xin chào, Tôi là Username#1234</h1>
+    <p class="intro">
+      Tôi là một lập trình viên trẻ đam mê công nghệ và sáng tạo. 💻<br>
+      Tôi chuyên về phát triển web front-end và yêu thích thiết kế giao diện người dùng (UI/UX). 🎨<br>
+      Ngoài ra, tôi còn thích chơi game, đọc sách về công nghệ mới và khám phá thế giới. 🌍<br>
+      Nếu bạn muốn hợp tác hoặc đơn giản chỉ là kết bạn, hãy liên hệ với tôi nhé!
+    </p>
 
-    <div class="icons">
-      <a href="#"><i class="fab fa-discord"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+    <div class="buttons">
+      <a href="#">Xem Dự Án</a>
+      <a href="#">Liên Hệ Tôi</a>
+      <a href="#">Theo Dõi</a>
     </div>
   </div>
 
   <footer>
-    <p>✨ Made with love by <span>Username</span> ✨</p>
+    &copy; 2025 Website của Tôi | Made with ❤️
   </footer>
 
 </body>
