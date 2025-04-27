@@ -3,28 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Giới Thiệu Bản Thân</title>
+  <title>Portfolio của Tôi</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(270deg, #00c3ff, #6e00ff, #ff6ec4, #7873f5);
       background-size: 800% 800%;
-      animation: gradientBG 15s ease infinite;
+      animation: gradientBG 20s ease infinite;
       color: #fff;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
     }
 
     @keyframes gradientBG {
@@ -33,114 +23,197 @@
       100% {background-position: 0% 50%;}
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      padding: 3rem 2rem;
-      max-width: 800px;
-      width: 100%;
+    header {
       text-align: center;
-      animation: fadeIn 1s ease forwards;
+      padding: 3rem 1rem 2rem;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .avatar {
-      width: 150px;
-      height: 150px;
+    header img {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 1rem;
       border: 5px solid #fff;
       box-shadow: 0 0 20px #00ffe7;
-      transition: transform 0.4s;
+      margin-bottom: 1rem;
     }
 
-    .avatar:hover {
-      transform: rotate(5deg) scale(1.05);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    h1 {
+    header h1 {
       font-size: 2.5rem;
-      font-weight: 700;
-      margin: 1rem 0;
-      text-shadow: 0 0 10px #ffffff;
+      margin-bottom: 0.5rem;
     }
 
-    .intro {
-      font-size: 1rem;
-      line-height: 1.8;
+    header p {
+      font-size: 1.1rem;
       color: #eee;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       margin-bottom: 2rem;
     }
 
-    .buttons {
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .contact, .follow {
+      margin-top: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      width: 90%;
+      max-width: 400px;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #00d1ff;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0084ff;
+    }
+
+    .social-icons {
+      margin-top: 2rem;
       display: flex;
       justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 2rem;
     }
 
-    .buttons a {
-      background-color: #00d1ff;
+    .social-icons a {
       color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 209, 255, 0.5);
+      transition: transform 0.3s, color 0.3s;
     }
 
-    .buttons a:hover {
-      background-color: #0084ff;
-      transform: translateY(-3px);
+    .social-icons a:hover {
+      transform: scale(1.3);
+      color: #00ffd5;
     }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #ccc;
+      margin-top: 4rem;
       text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      color: #ccc;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="avatar">
-      <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
-    </div>
-    <h1>Xin chào, Tôi là Username#1234</h1>
-    <p class="intro">
-      Tôi là một lập trình viên trẻ đam mê công nghệ và sáng tạo. 💻<br>
-      Tôi chuyên về phát triển web front-end và yêu thích thiết kế giao diện người dùng (UI/UX). 🎨<br>
-      Ngoài ra, tôi còn thích chơi game, đọc sách về công nghệ mới và khám phá thế giới. 🌍<br>
-      Nếu bạn muốn hợp tác hoặc đơn giản chỉ là kết bạn, hãy liên hệ với tôi nhé!
-    </p>
+  <header>
+    <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
+    <h1>Username#1234</h1>
+    <p>Developer | Designer | Dreamer</p>
+  </header>
 
-    <div class="buttons">
-      <a href="#">Xem Dự Án</a>
-      <a href="#">Liên Hệ Tôi</a>
-      <a href="#">Theo Dõi</a>
+  <section>
+    <h2>Giới Thiệu</h2>
+    <p>
+      Tôi là một lập trình viên yêu thích sáng tạo với đam mê về công nghệ và thiết kế.  
+      Tôi phát triển các website đẹp mắt, thân thiện với người dùng và tối ưu hiệu suất.  
+      Ngoài ra, tôi còn có kinh nghiệm trong lĩnh vực phát triển ứng dụng, game và thiết kế đồ họa.
+    </p>
+  </section>
+
+  <section>
+    <h2>Dự Án</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Website Shop Online</h3>
+        <p>Thiết kế website thương mại điện tử bán hàng thời trang, tích hợp thanh toán và quản lý đơn hàng.</p>
+      </div>
+      <div class="project-card">
+        <h3>Game Mini HTML5</h3>
+        <p>Phát triển trò chơi đơn giản tương tác bằng HTML5, Canvas API, và Web Audio API.</p>
+      </div>
+      <div class="project-card">
+        <h3>Landing Page</h3>
+        <p>Thiết kế landing page giới thiệu sản phẩm cho các startup và doanh nghiệp nhỏ.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="contact">
+    <h2>Liên Hệ Tôi</h2>
+    <form>
+      <input type="text" placeholder="Tên của bạn" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Tin nhắn..." required></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <section class="follow">
+    <h2>Theo Dõi Tôi</h2>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Website của Tôi | Made with ❤️
+    &copy; 2025 Website của Tôi | Made with 💖 by Username
   </footer>
 
 </body>
