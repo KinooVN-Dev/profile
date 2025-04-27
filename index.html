@@ -9,172 +9,143 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      background: #1e1f22;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: white;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       padding: 2rem;
     }
-    .container {
-      background: rgba(255,255,255,0.05);
+    .card {
+      background: #2b2d31;
       border-radius: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-      display: flex;
-      max-width: 1000px;
-      width: 100%;
-      overflow: hidden;
-      border: 2px solid #7f00ff;
-    }
-    .left {
-      width: 40%;
-      background: url('https://media.tenor.com/ftzIOlJv0qYAAAAC/discord-love.gif') center/cover no-repeat;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       padding: 2rem;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 0, 200, 0.5);
+      position: relative;
     }
-    .avatar {
+    .avatar-wrapper {
+      position: relative;
       width: 150px;
       height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 5px solid #00ffd5;
-      position: relative;
-      background: linear-gradient(45deg, #ff00c8, #00f7ff);
-      padding: 4px;
-      animation: pulse 2s infinite;
+      margin: 0 auto 1rem;
     }
-    .avatar img {
+    .avatar {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      position: relative;
+      z-index: 2;
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff; }
-      50% { box-shadow: 0 0 40px #00ffff, 0 0 60px #ff00ff; }
+    .decoration {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      width: 180px;
+      height: 180px;
+      background: url('https://media.discordapp.net/attachments/1052780891300184096/1227541331734378546/love_deco.gif') center/cover no-repeat;
+      z-index: 1;
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
     }
     .name {
-      margin-top: 1rem;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      text-align: center;
-    }
-    .right {
-      width: 60%;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .about, .skills, .contact, .music, .clock {
-      margin-bottom: 1.5rem;
-    }
-    h3 {
-      color: #00ffd5;
       margin-bottom: 0.5rem;
-      font-size: 1.2rem;
     }
-    p, li {
+    .badges {
+      margin-bottom: 1rem;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff00c8, #00fff0);
+      color: white;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border-radius: 15px;
+      margin: 2px;
+    }
+    .info {
+      background: #1e1f22;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: left;
+    }
+    .info h4 {
+      margin-bottom: 0.5rem;
+      color: #00ffc8;
+    }
+    .info p, .info li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
       color: #ccc;
-      font-size: 1rem;
-      line-height: 1.5;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li::before {
-      content: "• ";
-      color: #00ffd5;
+    .socials {
+      text-align: center;
+      margin-top: 1rem;
     }
     .socials a {
-      color: #00ffd5;
       font-size: 1.5rem;
-      margin-right: 15px;
+      color: #00fff7;
+      margin: 0 10px;
       transition: 0.3s;
     }
     .socials a:hover {
       color: #ff00ff;
     }
     audio {
+      margin-top: 1rem;
       width: 100%;
-      margin-top: 0.5rem;
-    }
-    .clock-time {
-      font-size: 1.5rem;
-      margin-top: 0.5rem;
+      border-radius: 10px;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="left">
-    <div class="avatar">
-      <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
-    </div>
-    <div class="name">Kinoovn</div>
+<div class="card">
+  <div class="avatar-wrapper">
+    <div class="decoration"></div>
+    <img class="avatar" src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
+  </div>
+  <div class="name">Kinoovn</div>
+  <div class="badges">
+    <span class="badge">💖 Trái Tim Rộn Ràng</span>
   </div>
 
-  <div class="right">
-    <div class="about">
-      <h3>Giới Thiệu</h3>
-      <p>Mình là một Developer, Designer & Creator 🎨🚀 Thích sáng tạo và biến ý tưởng thành hiện thực.</p>
+  <div class="info">
+    <h4>Giới Thiệu</h4>
+    <p>Developer | Designer | Creator 🎨🚀</p>
+
+    <h4>Kỹ Năng</h4>
+    <ul>
+      <li>HTML/CSS/JS</li>
+      <li>Thiết kế đồ họa</li>
+      <li>Chỉnh sửa video</li>
+      <li>Marketing</li>
+    </ul>
+
+    <h4>Liên Hệ</h4>
+    <div class="socials">
+      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
 
-    <div class="skills">
-      <h3>Kỹ Năng</h3>
-      <ul>
-        <li>Lập trình Website</li>
-        <li>Thiết kế Đồ họa</li>
-        <li>Chỉnh sửa Video</li>
-        <li>Marketing Online</li>
-      </ul>
-    </div>
-
-    <div class="contact">
-      <h3>Liên Hệ</h3>
-      <div class="socials">
-        <a href="#"><i class="fab fa-discord"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-
-    <div class="music">
-      <h3>Nhạc yêu thích</h3>
-      <audio controls autoplay loop>
-        <source src="https://cdn.pixabay.com/download/audio/2023/03/29/audio_6b457a07d5.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ audio.
-      </audio>
-    </div>
-
-    <div class="clock">
-      <h3>Giờ Hiện Tại</h3>
-      <div id="clock-time" class="clock-time"></div>
-    </div>
-
+    <audio controls autoplay loop>
+      <source src="https://cdn.pixabay.com/download/audio/2023/03/29/audio_6b457a07d5.mp3" type="audio/mpeg">
+      Trình duyệt không hỗ trợ âm nhạc.
+    </audio>
   </div>
 </div>
-
-<script>
-  function updateClock() {
-    const now = new Date();
-    const time = now.toLocaleTimeString('vi-VN');
-    document.getElementById('clock-time').textContent = time;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-</script>
 
 </body>
 </html>
