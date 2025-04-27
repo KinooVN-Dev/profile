@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hồ Sơ Cá Nhân - Kinoovn</title>
+  <title>Profile Hiệu Ứng Xịn</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -16,6 +16,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       padding: 2rem;
     }
     .card {
@@ -24,8 +25,9 @@
       padding: 2rem;
       width: 350px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255, 0, 200, 0.5);
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.5);
       position: relative;
+      overflow: hidden;
     }
     .avatar-wrapper {
       position: relative;
@@ -38,73 +40,47 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #fff;
+      border: 4px solid white;
       position: relative;
       z-index: 2;
+      background: linear-gradient(135deg, #ff00c8, #00fff0);
+      padding: 4px;
     }
-    .decoration {
+    .heart {
       position: absolute;
-      top: -15px;
-      left: -15px;
-      width: 180px;
-      height: 180px;
-      background: url('https://media.discordapp.net/attachments/1052780891300184096/1227541331734378546/love_deco.gif') center/cover no-repeat;
-      z-index: 1;
-      animation: spin 20s linear infinite;
+      width: 25px;
+      height: 25px;
+      background: url('https://media.discordapp.net/attachments/1227541331734378546/1227541332220196994/heart_effect.gif') no-repeat center/cover;
+      animation: floatUp 4s infinite ease-in;
+      opacity: 0.8;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-80px) scale(1.2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-150px) scale(1);
+        opacity: 0;
+      }
     }
     .name {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
     }
-    .badges {
-      margin-bottom: 1rem;
-    }
     .badge {
-      display: inline-block;
       background: linear-gradient(135deg, #ff00c8, #00fff0);
       color: white;
-      padding: 4px 10px;
-      font-size: 0.8rem;
+      padding: 5px 12px;
       border-radius: 15px;
-      margin: 2px;
-    }
-    .info {
-      background: #1e1f22;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: left;
-    }
-    .info h4 {
-      margin-bottom: 0.5rem;
-      color: #00ffc8;
-    }
-    .info p, .info li {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      color: #ccc;
-    }
-    .socials {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .socials a {
-      font-size: 1.5rem;
-      color: #00fff7;
-      margin: 0 10px;
-      transition: 0.3s;
-    }
-    .socials a:hover {
-      color: #ff00ff;
-    }
-    audio {
-      margin-top: 1rem;
-      width: 100%;
-      border-radius: 10px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      display: inline-block;
     }
   </style>
 </head>
@@ -113,38 +89,17 @@
 
 <div class="card">
   <div class="avatar-wrapper">
-    <div class="decoration"></div>
     <img class="avatar" src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
+
+    <!-- Hiệu ứng tim bay xung quanh -->
+    <div class="heart" style="left: 20px; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 100px; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 60px; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 80px; animation-delay: 3s;"></div>
   </div>
+
   <div class="name">Kinoovn</div>
-  <div class="badges">
-    <span class="badge">💖 Trái Tim Rộn Ràng</span>
-  </div>
-
-  <div class="info">
-    <h4>Giới Thiệu</h4>
-    <p>Developer | Designer | Creator 🎨🚀</p>
-
-    <h4>Kỹ Năng</h4>
-    <ul>
-      <li>HTML/CSS/JS</li>
-      <li>Thiết kế đồ họa</li>
-      <li>Chỉnh sửa video</li>
-      <li>Marketing</li>
-    </ul>
-
-    <h4>Liên Hệ</h4>
-    <div class="socials">
-      <a href="#"><i class="fab fa-discord"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-
-    <audio controls autoplay loop>
-      <source src="https://cdn.pixabay.com/download/audio/2023/03/29/audio_6b457a07d5.mp3" type="audio/mpeg">
-      Trình duyệt không hỗ trợ âm nhạc.
-    </audio>
-  </div>
+  <div class="badge">💖 Trái Tim Rộn Ràng</div>
 </div>
 
 </body>
