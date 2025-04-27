@@ -3,218 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio của Tôi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>My Nitro Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(270deg, #00c3ff, #6e00ff, #ff6ec4, #7873f5);
-      background-size: 800% 800%;
-      animation: gradientBG 20s ease infinite;
+      background: #0d0d0d;
       color: #fff;
-      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .profile-card {
+      position: relative;
+      width: 360px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease;
     }
 
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    header img {
-      width: 140px;
-      height: 140px;
+    .banner {
+      width: 100%;
+      height: 120px;
+      background: url('https://media.tenor.com/Zzx__Fx2zUsAAAAC/galaxy.gif') center/cover no-repeat;
+      animation: bannerMove 10s infinite alternate linear;
+    }
+
+    @keyframes bannerMove {
+      from { background-position: 0% center; }
+      to { background-position: 100% center; }
+    }
+
+    .avatar {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 5px solid #fff;
-      box-shadow: 0 0 20px #00ffe7;
-      margin-bottom: 1rem;
+      overflow: hidden;
+      animation: pulse 3s infinite ease-in-out;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      padding: 3px;
     }
 
-    header h1 {
-      font-size: 2.5rem;
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff; }
+      50% { box-shadow: 0 0 25px #00ffff, 0 0 40px #ff00ff; }
+    }
+
+    .info {
+      margin-top: 60px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .info h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
       margin-bottom: 0.5rem;
     }
 
-    header p {
-      font-size: 1.1rem;
-      color: #eee;
-    }
-
-    section {
-      padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-shadow: 0 0 10px #fff;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 1.5rem;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-card h3 {
-      font-size: 1.4rem;
+    .info p {
+      font-size: 1rem;
+      color: #ccc;
       margin-bottom: 1rem;
     }
 
-    .project-card p {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    .contact, .follow {
-      margin-top: 2rem;
-    }
-
-    form {
+    .badges {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
     }
 
-    input, textarea {
-      width: 90%;
-      max-width: 400px;
-      padding: 0.8rem;
+    .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 5px 10px;
       border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
     }
 
-    button {
-      background-color: #00d1ff;
-      color: white;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: bold;
+    .socials {
       margin-top: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #0084ff;
-    }
-
-    .social-icons {
-      margin-top: 2rem;
       display: flex;
       justify-content: center;
       gap: 20px;
-      font-size: 2rem;
     }
 
-    .social-icons a {
+    .socials a {
       color: #fff;
+      font-size: 1.5rem;
       transition: transform 0.3s, color 0.3s;
     }
 
-    .social-icons a:hover {
+    .socials a:hover {
       transform: scale(1.3);
       color: #00ffd5;
-    }
-
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1rem;
-      color: #ccc;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
-    <h1>Username#1234</h1>
-    <p>Developer | Designer | Dreamer</p>
-  </header>
+  <div class="profile-card">
+    <div class="banner"></div>
 
-  <section>
-    <h2>Giới Thiệu</h2>
-    <p>
-      Tôi là một lập trình viên yêu thích sáng tạo với đam mê về công nghệ và thiết kế.  
-      Tôi phát triển các website đẹp mắt, thân thiện với người dùng và tối ưu hiệu suất.  
-      Ngoài ra, tôi còn có kinh nghiệm trong lĩnh vực phát triển ứng dụng, game và thiết kế đồ họa.
-    </p>
-  </section>
-
-  <section>
-    <h2>Dự Án</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Website Shop Online</h3>
-        <p>Thiết kế website thương mại điện tử bán hàng thời trang, tích hợp thanh toán và quản lý đơn hàng.</p>
-      </div>
-      <div class="project-card">
-        <h3>Game Mini HTML5</h3>
-        <p>Phát triển trò chơi đơn giản tương tác bằng HTML5, Canvas API, và Web Audio API.</p>
-      </div>
-      <div class="project-card">
-        <h3>Landing Page</h3>
-        <p>Thiết kế landing page giới thiệu sản phẩm cho các startup và doanh nghiệp nhỏ.</p>
-      </div>
+    <div class="avatar">
+      <img src="https://cdn.discordapp.com/avatars/your-user-id/your-avatar-hash.png?size=512" alt="Avatar">
     </div>
-  </section>
 
-  <section class="contact">
-    <h2>Liên Hệ Tôi</h2>
-    <form>
-      <input type="text" placeholder="Tên của bạn" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Tin nhắn..." required></textarea>
-      <button type="submit">Gửi</button>
-    </form>
-  </section>
+    <div class="info">
+      <h2>Username#1234</h2>
+      <p>Developer | Designer | Dreamer 🚀</p>
 
-  <section class="follow">
-    <h2>Theo Dõi Tôi</h2>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-discord"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <div class="badges">
+        <div class="badge">Nitro</div>
+        <div class="badge">Early Supporter</div>
+        <div class="badge">HypeSquad</div>
+      </div>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+
     </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Website của Tôi | Made with 💖 by Username
-  </footer>
+  </div>
 
 </body>
 </html>
